@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>message - manager</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="clients">
+        <template>
+          <div class="client">
+            <h3 class="name"></h3>
+            <form action="">
+              <input type="text" placeholder="to" required />
+              <textarea placeholder="message content" required></textarea>
+              <button type="button">send</button>
+            </form>
+            <div class="newMessage">
+              <h4 class="from"></h4>
+              <p class="content"></p>
+            </div>
+            <div class="cable"><div class="package"><img src="/imeages/post-office-1019869_640-removebg-preview.png" alt="" width="100px" height="100px"></div></div>
+          </div>
+        </template>
+      </div>
+      <div class="server">
+        <p>server</p>
+      </div>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

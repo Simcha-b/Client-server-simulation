@@ -1,0 +1,102 @@
+:root {
+  --clientSize: 200px;
+  --packageSize: 30px;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+main,
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vh;
+}
+.client {
+  width: var(--clientSize);
+  height: var(--clientSize);
+  background-color: rgb(227, 227, 227);
+  border: 1px solid black;
+  margin: 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.server {
+  position: relative;
+  background-color: lightgreen;
+  border: 3px solid green;
+  height: 80vh;
+  width: var(--clientSize);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  margin-left: 200px;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+input,
+textarea {
+  max-width: 130px;
+  margin: 3px;
+}
+button {
+  width: 50px;
+}
+
+.cable {
+  /* background-color: rgb(243, 242, 242); */
+  border-bottom: blue 5px solid;
+  position: relative;
+  width: 300px;
+  height: 50px;
+  z-index: -1;
+  bottom: 35%;
+  left: 110%;
+}
+.package {
+  position: relative;
+  /* background-color: brown; */
+  width: var(--packageSize);
+  height: var(--packageSize);
+  top: 5px;
+  display: none;
+}
+.package.send {
+  display: block;
+  animation: send 3s ease-in-out;
+}
+@keyframes send {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(270px);
+  }
+}
+.package.recieve {
+  display: block;
+  animation: recieve 3s ease-in-out;
+}
+@keyframes recieve {
+  from {
+    transform: translateX(270px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.newMessage {
+  position: relative;
+  /* border: 1px black solid; */
+  padding: 3px;
+}
