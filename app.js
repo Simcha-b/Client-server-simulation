@@ -29,6 +29,7 @@ class Server {
 }
 
 const server = new Server();
+const serverVisual = document.querySelector(".server");
 
 class Cable {
   constructor(client) {
@@ -40,10 +41,10 @@ class Cable {
   moveRequest() {
     const pack = server.reseiveRequest(this.client);
     if (pack !== null) {
-      this.client.visualPackage.classList.add("recieve");
+      this.client.visualPackage.classList.add("receive");
       this.isFree = false;
       setTimeout(() => {
-        this.client.visualPackage.classList.remove("recieve");
+        this.client.visualPackage.classList.remove("receive");
         this.isFree = true;
       }, 3000);
       return pack;
@@ -69,17 +70,18 @@ const createId = (() => {
 })();
 
 class Client {
-  constructor(id) {
+  constructor(side) {
     this.id = createId();
+    this.side = side;
     this.packages = [];
     this.cable = new Cable(this);
-    const clone = document.querySelector("template").content.cloneNode(true);
+    const clone = document.querySelector(`.${side}`).content.cloneNode(true);
     const h3 = clone.querySelector("h3");
     h3.textContent = `id: ${this.id}`;
     this.mybutton = clone.querySelector("button");
-    this.newMessage = clone.querySelector(".newMessage");
+    this.allMassages = clone.querySelector(".allMassages");
     this.visualPackage = clone.querySelector(".package");
-    document.querySelector(".clients").append(clone);
+    document.querySelector(`.clients${side}`).append(clone);
     this.mybutton.addEventListener("click", this.sendMassge);
     this.sendRequest();
   }
@@ -89,12 +91,7 @@ class Client {
       if (pack !== null) {
         this.packages.push(pack);
         setTimeout(()=>{
-          this.newMessage.querySelector(
-            ".from"
-          ).textContent = `from: ${pack.from}`;
-          this.newMessage.querySelector(
-            ".content"
-          ).textContent = `content: ${pack.message}`
+          this.allMassages.textContent += `from: ${pack.from} contant: ${pack.message}`
         },3000)
        ;
       }
@@ -119,6 +116,9 @@ class Client {
   };
 }
 
-const cl1 = new Client();
-const cl2 = new Client();
-const cl3 = new Client();
+const cl1 = new Client("left");
+const cl2 = new Client("left");
+const cl3 = new Client("left");
+const cl4 = new Client("right");
+const cl5 = new Client("right");
+const cl6 = new Client("right");

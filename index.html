@@ -8,26 +8,50 @@
   </head>
   <body>
     <main>
-      <div class="clients">
-        <template>
-          <div class="client">
+      <div class="clientsleft">
+        <template class="left">
+          <div class="clients-container left-clients">
+            <div class="client left">
             <h3 class="name"></h3>
             <form action="">
               <input type="text" placeholder="to" required />
               <textarea placeholder="message content" required></textarea>
               <button type="button">send</button>
             </form>
-            <div class="newMessage">
-              <h4 class="from"></h4>
-              <p class="content"></p>
+            <textarea class="allMassages">
+            </textarea>
+            <div class="cable">
+            <div class="package"><img src="/imeages/post-office-1019869_640-removebg-preview.png" alt="" width="100px" height="100px" >
             </div>
-            <div class="cable"><div class="package"><img src="/imeages/post-office-1019869_640-removebg-preview.png" alt="" width="100px" height="100px"></div></div>
+            </div>
           </div>
         </template>
       </div>
       <div class="server">
         <p>server</p>
       </div>
+      <div class="clientsright">
+      <div class="clients-container right-clients">
+        <template class="right">
+          <div class="client right">
+            <h3 class="name"></h3>
+            <form action="">
+              <input type="text" placeholder="to" required />
+              <textarea placeholder="message content" required></textarea>
+              <button type="button">send</button>
+            </form>
+            <textarea class="allMassages">
+            </textarea>
+            <div class="cable">
+              <div class="package">
+                <img src="/imeages/post-office-1019869_640-removebg-preview.png" alt="" width="100px" height="100px">
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+
     </main>
     <script src="/app.js"></script>
   </body>

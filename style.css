@@ -1,5 +1,5 @@
 :root {
-  --clientSize: 200px;
+  --clientSize: 250px;
   --packageSize: 30px;
 }
 * {
@@ -12,14 +12,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vh;
+  width: auto;
+  height: auto;
 }
 .client {
   width: var(--clientSize);
   height: var(--clientSize);
   background-color: rgb(227, 227, 227);
   border: 1px solid black;
-  margin: 5vh;
+  margin: 15vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,7 +36,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 50px;
-  margin-left: 200px;
+  /* margin-left: 200px;  */
   writing-mode: vertical-rl;
   text-orientation: upright;
 }
@@ -46,7 +47,7 @@ form {
 }
 input,
 textarea {
-  max-width: 130px;
+  max-width: 150px;
   margin: 3px;
 }
 button {
@@ -61,7 +62,14 @@ button {
   height: 50px;
   z-index: -1;
   bottom: 35%;
+}
+.left .cable {
   left: 110%;
+  right: auto;
+}
+.right .cable {
+  left: auto;
+  right: 110%;
 }
 .package {
   position: relative;
@@ -71,7 +79,7 @@ button {
   top: 5px;
   display: none;
 }
-.package.send {
+.left .package.send {
   display: block;
   animation: send 3s ease-in-out;
 }
@@ -83,11 +91,22 @@ button {
     transform: translateX(270px);
   }
 }
-.package.recieve {
-  display: block;
-  animation: recieve 3s ease-in-out;
+.right .package.send {
+  animation: send-right 3s ease-in-out;
 }
-@keyframes recieve {
+@keyframes send-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-270px);
+  }
+}
+.left .package.receive {
+  display: block;
+  animation: receive 3s ease-in-out;
+}
+@keyframes receive {
   from {
     transform: translateX(270px);
   }
@@ -95,8 +114,18 @@ button {
     transform: translateX(0);
   }
 }
-.newMessage {
+.right .package.receive {
+  animation: receive-right 3s ease-in-out;
+}
+@keyframes receive-right {
+  from {
+    transform: translateX(300px);
+  }
+  to {
+    transform: translateX(700px);
+  }
+}
+.allMassages {
   position: relative;
   /* border: 1px black solid; */
-  padding: 3px;
 }
